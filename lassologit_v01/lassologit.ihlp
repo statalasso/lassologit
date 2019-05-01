@@ -658,7 +658,7 @@ which is a measure of model complexity.
 {pstd}
 By default, {cmd:lassologit} displays EBIC in the output, 
 but all four information criteria are stored in {cmd:e(aic)}, {cmd:e(bic)}, {cmd:e(ebic)} and {cmd:e(aicc)}. 
-See section {help lassologit##informationcriteria:Information criteria} for more information.
+See help file of {helpb lasso2} for more information.
 
 
 {marker rigorous}{...}
