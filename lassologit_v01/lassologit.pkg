@@ -1,0 +1,11 @@
+v 3
+d LASSOLOGIT: Stata module for logistic lasso regression.
+d Achim Ahrens, Mark E Schaffer, Christian B Hansen
+f cvlassologit.sthlp
+f lassologit.sthlp
+f lassologit.ihlp
+f rlassologit.sthlp
+f cvlassologit.ado
+f lassologit.ado
+f rlassologit.ado
+f lassologit_p.ado
