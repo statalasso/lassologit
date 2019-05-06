@@ -67,7 +67,7 @@ insheet using "spam.data", clear delim(" ")
 // => lasso logit and post-logit should be similar
 set seed 123
 gen double wtvar=runiform()
-lassologit v58 v1-v10 [aw=wtvar], l(0.000001) precision(1e-15) tolzero(1e-15)
+lassologit v58 v1-v10 [aw=wtvar], l(0.000001) tolopt(1e-15) tolzero(1e-15)
 mat bL=e(beta_dense)
 mat bPL=e(beta_post_dense)
 assert mreldif(bL,bPL)<0.002

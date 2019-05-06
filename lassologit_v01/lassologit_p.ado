@@ -1,4 +1,7 @@
 *! lassologit_p
+*! part of the lassologit package (v0.1)
+*! last edited: 6may2019
+*! authors: aa/ms
 
 program define lassologit_p, rclass
 

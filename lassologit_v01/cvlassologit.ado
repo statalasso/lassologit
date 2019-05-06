@@ -1,11 +1,7 @@
 *! cvlassologit 
 *! part of the lassologit package (v0.1)
-*! last edited: 15apr2019
+*! last edited: 6may2019
 *! authors: aa/ms
-
-* misc:
-* put output display into a separate function, 
-*		so that display replay works
 
 program cvlassologit, eclass sortpreserve
 	version 13

@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 19jan2019}{...}
+{* *! version 6may2019}{...}
 {hline}
 {cmd:help lassologit}{right: {it:lassologit} package v0.1}
 {cmd:help rlassologit}{right: {it:first release}}
@@ -823,7 +823,6 @@ results without that we need to re-estimate the model.
 To store the model selected by one of the information 
 criteria, use {cmdab:postres:ults}:
 
-{phang2}. {stata "lassologit v58 v1-v57"}{p_end}
 {phang2}. {stata "lassologit, lic(ebic) postresults"}{p_end}
 
 {marker example_cv}{...}
@@ -854,7 +853,7 @@ replay syntax.
 
 {pstd}
 The data is by default randomly partitioned 
-into {it:K} folds. The {opt tabfold} asks
+into {it:K} folds. The {opt tabfold} option asks
 {cmd:lassologit} to show the frequency distribution
 of successes (1) and failures (0) across folds.
 

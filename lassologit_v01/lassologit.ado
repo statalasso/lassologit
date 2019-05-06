@@ -1,22 +1,15 @@
 *! lassologit (v0.1)
-*! last edited: 12apr2019
-*! authors: aa/ms
+*! last edited: 6may2019
+*! authors: aa/ms/cbh
 
 * to do (long term):
 * support elastic net parameter alpha
 
 * to do (essentials):
 * options for post-logit estimation (currently options = nocons and iterate(100))
-* plotting. AA: done.
-* recode so that non-binary dep var is treated the way Stata treats it. MS: done
-* loss measures and weights
 
 * misc:
-* return both e(total_trials) and e(N)? AA: makes sense! MS: done
-* add weight expression to saved macros. MS: done
 * should e(lambdan) be a scalar or a string?
-* should penalty loadings include 0 for constant? No. MS: done
-* optionally, 0 added automatically if omitted? MS: no.
 * naming in struct: d.Xnames_o is a string, d.XnamesCons_o is a vector (tokenized)
 * star (*) for "not penalized" in output table
 

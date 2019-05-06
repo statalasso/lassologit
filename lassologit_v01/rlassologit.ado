@@ -1,6 +1,6 @@
 *! rlassologit 
 *! part of the lassologit package (v0.1)
-*! last edited: 12apr2019
+*! last edited: 6may2019
 *! authors: aa/ms
 
 cap program drop rlassologit

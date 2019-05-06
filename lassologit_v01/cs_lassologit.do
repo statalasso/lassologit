@@ -197,14 +197,14 @@ insheet using "spam.data", clear delim(" ")
 
 foreach lam of numlist 0.187 0.1 0.07 0.05 0.01 0.005 {
  
-	lassologit v58 v1-v57, l(`lam')   postl
+	lassologit v58 v1-v57, l(`lam')   postl lambdan
 	mat b1 = e(b)  
 	local L1 = e(ll)
 
 	local sel = e(selected)
 	di "lambda=`lam'; selected=`sel'"
 
-	logit v58 `sel', iterate(100)
+	logit v58 `sel', iterate(100)  
 	mat b2 = e(b)  
 	local L2 = e(ll)
 
@@ -230,19 +230,20 @@ insheet using "spam.data", clear delim(" ")
 
 *******
 
-
-lassologit v58 v1-v57, l(0.187 0.1 0.07 0.05 0.01 0.005 )
+lassologit v58 v1-v57, l(0.187 0.1 0.07 0.05 0.01 ) lambdan quadp noseqr tolopt(1e-14)
 mat B = e(betas)
 
 
 local j = 1
-foreach lam of numlist 0.187 0.1 0.07 0.05 0.01 0.005 {
+foreach lam of numlist 0.187 0.1 0.07 0.05 0.01 {
  
-	lassologit v58 v1-v57, l(`lam')    
+	lassologit v58 v1-v57, l(`lam')   lambdan quadp noseqr tolopt(1e-14)
 	mat bj = e(beta)
 	
 	mat Bj = B[`j',1..58]
 	
+	di "lambda=`lam'"
+	
 	di mreldif(bj,Bj)
 	
 	assert mreldif(bj,Bj)<0.001
@@ -254,21 +255,23 @@ foreach lam of numlist 0.187 0.1 0.07 0.05 0.01 0.005 {
 
 *******
 
-lassologit v58 v1-v57, l(0.187 0.1 0.07 0.05 0.01 0.005 ) postl
+lassologit v58 v1-v57, l(0.187 0.1 0.07 0.05 0.01 ) postl lambdan quadp noseqr tolopt(1e-14)
 mat B = e(betas)
 
 
 local j = 1
-foreach lam of numlist 0.187 0.1 0.07 0.05 0.01 0.005 {
+foreach lam of numlist 0.187 0.1 0.07 0.05 0.01 {
  
-	lassologit v58 v1-v57, l(`lam')    
+	lassologit v58 v1-v57, l(`lam') postl lambdan   quadp noseqr tolopt(1e-14)
 	mat bj = e(beta_post)
 	
 	mat Bj = B[`j',1..58]
 	
+	di "lambda=`lam'"
+	
 	di mreldif(bj,Bj)
 	
-	assert mreldif(bj,Bj)<0.001
+	assert mreldif(bj,Bj)<1e-10
 	
 	local j = `j' + 1
 
@@ -278,22 +281,22 @@ foreach lam of numlist 0.187 0.1 0.07 0.05 0.01 0.005 {
 
 *******
 
-lassologit v58 v1-v57, l(0.1 0.07 0.05 0.01 0.005 ) nocons
+lassologit v58 v1-v57, l(0.1 0.07 0.05 0.01 0.005 ) nocons lambdan  quadp noseqr tolopt(1e-14)
 mat B = e(betas)
 
 
 local j = 1
 foreach lam of numlist 0.1 0.07 0.05 0.01 0.005 {
  
-	di `lam'
-	lassologit v58 v1-v57, l(`lam')  nocons   
+	di "lambda=`lam'"
+	lassologit v58 v1-v57, l(`lam')  nocons   lambdan quadp noseqr tolopt(1e-14)
 	mat bj = e(beta)
 	
 	mat Bj = B[`j',1..57]
 	
 	di mreldif(bj,Bj)
 	
-	assert mreldif(bj,Bj)<0.001
+	assert mreldif(bj,Bj)<1e-5
 	
 	local j = `j' + 1
 
@@ -303,18 +306,20 @@ foreach lam of numlist 0.1 0.07 0.05 0.01 0.005 {
 
 *******
 
-lassologit v58 v1-v57, l(0.187 0.1 0.07 0.05 0.01 0.005 ) nostd
+lassologit v58 v1-v57, l(0.187 0.16 0.12 0.1   ) nostd lambdan quadp noseqr tolopt(1e-14)
 mat B = e(betas)
 
 
 local j = 1
-foreach lam of numlist 0.187 0.1 0.07 0.05 0.01 0.005 {
+foreach lam of numlist 0.187 0.16 0.12 0.1   {
  
-	lassologit v58 v1-v57, l(`lam')  nostd  
+	lassologit v58 v1-v57, l(`lam')  nostd  lambdan  quadp noseqr tolopt(1e-14)
 	mat bj = e(beta)
 	
 	mat Bj = B[`j',1..58]
 	
+	di "lambda=`lam'"
+
 	di mreldif(bj,Bj)
 	
 	assert mreldif(bj,Bj)<0.001
